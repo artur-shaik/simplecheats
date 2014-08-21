@@ -1,0 +1,55 @@
+#!/bin/bash
+#
+# cheat - simple cheats script.
+#
+# Usage:
+#   cheat [-e] ls
+#
+#   if -e specified, cheat will be opened in vim, for editing,
+#   otherwise it will be opened in less.
+#
+
+NOT_EXISTS=1
+NO_CHEATS=2
+NO_NAME=3
+
+CHEATS_DIR=~/.cheat
+
+usage() {
+    echo "Usage: cheat <cheatname>"
+    echo "Usage: cheat -e <cheatname>"
+    exit
+}
+
+if [[ ! -d $CHEATS_DIR ]]; then
+    echo "Sorry, you don't have .cheat folder in your home directory"
+    exit $NO_CHEATS
+fi
+
+if [[ $# -gt 0 ]];
+then
+    if [[ "$1" == "-e" ]]; then 
+        if [[ $# -eq 2 ]]; then
+            vi $CHEATS_DIR/$2
+            exit 0
+        else
+            echo "You didn't enter name of the cheat"
+            exit $NO_CHEATS
+        fi
+    elif [[ "$1" == "-h" || "$1" == "--help" ]]; then
+        usage
+    fi
+
+    cheat=$1
+else
+    usage
+fi
+
+file=$CHEATS_DIR/$cheat
+
+if [[ ! -f $file ]]; then
+    echo "Cheat doesn't exist"
+    exit $NOT_EXISTS
+fi
+
+less $file
