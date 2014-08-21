@@ -1,0 +1,3 @@
+
+Create rar multipart archive:
+rar a -v153600k <name-of-archive-file> <files-to-compressed>
