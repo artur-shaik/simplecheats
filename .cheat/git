@@ -51,3 +51,11 @@ git show 83fb499:path/fo/file.ext                       # Shows the file as it a
 git diff branch_1 branch_2                              # Check difference between branches
 git log                                                 # Show all the commits
 git status                                              # Show the changes from last commit
+
+
+# To remove the file you're interested in from version control, then use all your other commands as normal.
+git update-index --assume-unchanged <file>
+
+# If you ever wanted to put it back in.
+git update-index --no-assume-unchanged <file>
+
