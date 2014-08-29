@@ -1,0 +1,68 @@
+|--------------------|
+| W3M                |
+|--------------------|
+|--------------------|
+| Navigation         |
+|--------------------+-------|
+| move list menu     |     f |
+| list menu          |     F |
+| next link          |   C-n |
+| previous link      |   C-p |
+| reload             |     r |
+|--------------------+-------|
+| Save/Load          |
+|--------------------+-------|
+| save               |    :w |
+| print              |    :W |
+| goto               |    :o |
+| load               |    :e |
+|--------------------+-------|
+| Scrolling          |
+|--------------------+-------|
+| down               |   C-e |
+| up                 |   C-y |
+| begin              |    gg |
+| end                |     G |
+| next_page          |   C-d |
+| previous page      |   C-u |
+| vertical center    |    zz |
+|--------------------+-------|
+| History
+|--------------------+-------|
+| redo               |   C-i |
+| undo               |   C-o |
+|--------------------+-------|
+| Info               |
+|--------------------+-------|
+| peek               |     y |
+| info               |  gC-g |
+| line info          |   C-g |
+| view source        |    gf |
+|--------------------+-------|
+| Boormarks          |
+|--------------------+-------|
+| add bookmark       |     a |
+| view bookmark      |    :b |
+|--------------------+-------|
+| Tab                |
+|--------------------+-------|
+| close tab          |     d |
+| go to google       |    gh |
+| go in new tab      |    gH |
+| to Google          |       |
+| new tab            |   C-t |
+| next tab           |    gt |
+| prev tab           |    gT |
+| tab goto           |     t |
+| tabs menu          |     T |
+|--------------------+-------|
+| External           |
+|--------------------+-------|
+| open page external |   C-e |
+| open link external |   C-E |
+|--------------------+-------|
+| Quit               |
+|--------------------+-------|
+| quit               | :q,ZZ |
+| exit               |    ZQ |
+|--------------------+-------|
