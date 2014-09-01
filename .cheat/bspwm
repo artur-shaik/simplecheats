@@ -1,0 +1,20 @@
+|-----------------------|
+| BSPWM                 |
+|-----------------------|
+|-----------------------+------+----+----------|
+| preselect split ratio | super+ctrl+{h,j,k,l} |
+| make window sticky    |            super + e |
+| prevent closing       |            super + r |
+| hide all              |            super + z |
+| transplant selected   |            super + y |
+| to given              |                      |
+|-----------------------+----------------------|
+| Monitor               |
+|-----------------------+------------------+---|
+| next monitor          |            super + n |
+| move window to        |      super alt {1-9} |
+| monitor               |                      |
+| move desktop to       | super+shift+alt+{1-9 |
+| monitor               |                      |
+|-----------------------+----------------------|
+
