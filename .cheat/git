@@ -59,3 +59,5 @@ git update-index --assume-unchanged <file>
 # If you ever wanted to put it back in.
 git update-index --no-assume-unchanged <file>
 
+# Cancel last commit
+git reset --soft HEAD~1
