@@ -61,3 +61,6 @@ git update-index --no-assume-unchanged <file>
 
 # Cancel last commit
 git reset --soft HEAD~1
+
+# Remove all untracked files
+git clean -f
