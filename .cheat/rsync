@@ -1,6 +1,25 @@
+# parameters:
+-v : verbose
+-r : copies data recursively (but don’t preserve timestamps and permission while transferring data
+-a : archive mode, archive mode allows copying files recursively and it also preserves symbolic links, file permissions, user & group ownerships and timestamps
+-z : compress file data
+-h : human-readable, output numbers in a human-readable format
+
 # copy files from remote to local, maintaining file propertires and sym-links (-a), zipping for faster transfer (-z), verbose (-v).  
 rsync -avz host:file1 :file1 /dest/
 rsync -avz /source host:/dest
 
 # Copy files using checksum (-c), rather than time, to detect if the file has changed. (Useful for validating backups). 
 rsync -avc /source/ /dest/
+
+# Use of –include and –exclude Options
+rsync -avze ssh --include 'R*' --exclude '*' root@192.168.0.101:/var/lib/rpm/ /root/rpm
+
+# Set the Max Size of Files to be Transferred
+rsync -avzhe ssh --max-size='200k' /var/lib/rpm/ root@192.168.0.100:/root/tmprpm
+
+# Automatically Delete source Files after successful Transfer
+rsync --remove-source-files -zvh backup.tar /tmp/backups/
+
+# Set Bandwidth Limit and Transfer File
+rsync --bwlimit=100 -avzhe ssh  /var/lib/rpm/  root@192.168.0.100:/root/tmprpm/
