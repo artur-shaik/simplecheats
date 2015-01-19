@@ -1,21 +1,17 @@
-# Compile a file
-gcc file.c
+# gcc
 
-# Compile a file with a custom output
-gcc -o file file.c
+> Preprocesses and compiles C and C++ source files, then assembles and links them together.
 
-# Debug symbols
-gcc -g
+- Compile multiple source files into executable
 
-# Debug with all symbols.
-gcc -ggdb3
+`gcc {{source1.c}} {{source2.c}} -o {{executable}}`
 
-# Build for 64 bytes
-gcc -m64
+- Allow warnings, debug symbols in output
 
-# Include the directory {/usr/include/myPersonnal/lib/} to the list of path for #include <....>
-# With this option, no warning / error will be reported for the files in {/usr/include/myPersonnal/lib/}
-gcc -isystem /usr/include/myPersonnal/lib/
+`gcc {{source.c}} -Wall -Og -o {{executable}}`
 
-# Build a GUI for windows (Mingw) (Will disable the term/console)
-gcc -mwindows
+- Include libraries from a different path
+
+`gcc {{source.c}} -o {{executable}} -I{{header_path}} -L{{library_path}} -l{{library_name}}`
+
+

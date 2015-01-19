@@ -1,26 +1,32 @@
-# Basic:
-grep pattern file
+# grep
 
-# case nonsensitive research:
-grep -i pattern file
+> Matches patterns in input text
+> Supports simple patterns and regular expressions
 
-# Recursively grep for string <pattern> in folder:
-grep -R pattern folder
+- search for an exact string
+ 
+`grep {{something}} {{file_path}}`
 
-# Getting pattern from file (one by line):
-grep -f pattern_file file
+- search recursively in current directory for an exact string
 
-# Find lines NOT containing pattern
-grep -v pattern file
+`grep -r {{something}} .`
 
-# You can grep with regular expressions
-grep "^00" file  #Match lines starting with 00
-grep -E "[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}" file  #Find IP add
+- use a regex
 
-# Find all files who contain {pattern} in the directory {directory}.
-# This will show: "file:line my research"
-grep -rnw 'directory' -e "pattern"
+`grep -e {{^regex$}} {{file_path}}`
 
-# Exclude grep from your grepped output of ps.
-# Add [] to the first letter. Ex: sshd -> [s]shd
-ps aux | grep '[h]ttpd'
+- see 3 lines of context
+
+`grep -C 3 {{something}} {{file_path}}`
+
+- print the count of matches instead of the matching text 
+
+`grep -c {{something}} {{file_path}}`
+
+- use the standard input instead of a file
+
+`cat {{file_path}} | grep {{something}}`
+
+- invert match for excluding specific strings
+
+`grep -v {{something}}`

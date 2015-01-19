@@ -1,27 +1,15 @@
-# Print all system information
-uname -a
-# Linux system-hostname 3.2.0-4-amd64 #1 SMP Debian 3.2.32-1 x86_64 GNU/Linux
+# uname
 
-# Print the hostname
-uname -n
-# system-hostname
+> Print operating system name
 
-# Print the kernel release
-uname -r
-# 3.2.0-4-amd64
+- Print all available operating system and kernel information
 
-# Print the kernel version, with more specific information
-uname -v
-# #1 SMP Debian 3.2.32-1
+`uname -a`
 
-# Print the hardware instruction set
-uname -m
-# x86_64
+- Print the current operating system name (e.g. Linux, Darwin, SunOS, etc)
 
-# Print the kernel name
-uname -s
-# Linux
+`uname -s`
 
-# Print the operating system
-uname -o
-# GNU/Linux
+- Print the nodename (hostname) of the system
+
+`uname -n`

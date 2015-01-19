@@ -1,23 +1,15 @@
-# List all IPv4 network files
-sudo lsof -i4
+# lsof
 
-# List all IPv6 network files
-sudo lsof -i6
+> Lists open files and the corresponding processes
 
-# To find listening ports:
-lsof -Pnl +M -i4
+- find the processes that have a given file open
 
-# To find which program is using the port 80:
-lsof -i TCP:80
+`lsof {{/path/to/file}}`
 
-# List all processes accessing a particular file/directory
-lsof </path/to/file>
+- find the process that opened a local internet port
 
-# List all files open for a particular user
-lsof -u <username>
+`lsof -i :{{8080}}`
 
-# List all files/network connections a given process is using
-lsof -c <command-name>
+- only output the process PID (e.g. to pipe into kill)
 
-# See this primer: http://www.danielmiessler.com/study/lsof/
-# for a number of other useful lsof tips
+`lsof -t {{/path/to/file}} | xargs kill -9`

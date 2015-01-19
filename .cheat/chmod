@@ -1,36 +1,23 @@
-# Add execute for all (myscript.sh)
-chmod a+x myscript.sh
+# chmod
 
-# Set user to read/write/execute, group/global to read only (myscript.sh), symbolic mode
-chmod u=rwx, go=r myscript.sh 
+> Change the access permissions of a file or directory
 
-# Remove write from user/group/global (myscript.sh), symbolic mode
-chmod a-w myscript.sh
+- Give the (u)ser who owns a file the right to e(x)ecute it
 
-# Remove read/write/execute from user/group/global (myscript.sh), symbolic mode
-chmod = myscript.sh
+`chmod u+x {{file}}`
 
-# Set user to read/write and group/global read (myscript.sh), octal notation
-chmod 644 myscript.sh
+- Give the user rights to (r)ead and (w)rite to a file/directory
 
-# Set user to read/write/execute and group/global read/execute (myscript.sh), octal notation
-chmod 755 myscript.sh
+`chmod u+rw {{file}}`
 
-# Set user/group/global to read/write (myscript.sh), octal notation
-chmod 666 myscript.sh
+- Remove executable rights from the (g)roup 
 
-# Roles
-u - user (owner of the file)
-g - group (members of file's group)
-o - global (all users who are not owner and not part of group)
-a - all (all 3 roles above)
+`chmod g-x {{file}}`
 
-# Numeric representations
-7 - full (rwx)
-6 - read and write (rw-)
-5 - read and execute (r-x)
-4 - read only (r--)
-3 - write and execute (-wx)
-2 - write only (-w-)
-1 - execute only (--x)
-0 - none (---)
+- Give (a)ll users rights to read and execute
+
+`chmod a+rx {{file}}`
+
+- Give (o)thers (not in the file owner's group) the same rights as the group
+
+`chmod o=g {{file}}`

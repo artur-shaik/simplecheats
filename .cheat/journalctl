@@ -1,21 +1,27 @@
-# Actively follow log (like tail -f)
-journalctl -f
+# journalctl
 
-# Display all errors since last boot
-journalctl -b -p err
+> Query the systemd journal
 
-# Filter by time period
-journalctl --since=2012-10-15 --until="2011-10-16 23:59:59"
+- Show all messages from this boot
 
-# Show list of systemd units logged in journal
-journalctl -F _SYSTEMD_UNIT
+`journalctl -b`
 
-# Filter by specific unit
-journalctl -u dbus
+- Show all messages from last boot
 
-# Filter by executable name
-journalctl /usr/bin/dbus-daemon
+`journalctl -b -1`
 
-# Filter by PID
-journalctl _PID=123
+- Follow new messages (like `tail -f` for traditional syslog)
 
+`journalctl -f`
+
+- Show all messages by a specific unit
+
+`journalctl -u {{unit}}`
+
+- Show all messages by a specific process
+
+`journalctl _PID={{pid}}`
+
+- Show all messages by a specific executable
+
+`journalctl {{/path/to/executable}}`

@@ -1,11 +1,34 @@
-# Displays everything in the target directory
-ls path/to/the/target/directory
+# ls
 
-# Displays everything including hidden files
-ls -a
+> List directory contents
 
-# Displays all files, along with the size (with unit suffixes) and timestamp
-ls -lh 
+- List all files, even hidden
 
-# Display files, sorted by size
-ls -S
+`ls -a`
+
+- List all file names (no extra info)
+
+`ls -A1`
+
+- List all files with their rights, groups, owner
+
+`ls -ls`
+
+- List all files and display the file size in a human readable format
+
+`ls -lh`
+
+- List all files with a prefix/suffix
+
+`ls {{prefix}}*`
+`ls *{{suffix}}`
+
+- Sort the results by size, last modified date, or creation date
+
+`ls -S`
+`ls -t`
+`ls -U`
+
+- Reverse the order of the results
+
+`ls -r`

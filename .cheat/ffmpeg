@@ -1,133 +1,19 @@
-1. Получение информации о видеофайле
+# ffmpeg
 
-ffmpeg -i video.avi
+> Video conversion tool
 
-2. Превратить набор картинок в видео
+- Extract the sound from a video and save it as MP3
 
-ffmpeg -f image2 -i image%d.jpg video.mpg
+`ffmpeg -i {{video-filename}} -vn -ar 44100 -ac 2 -ab 192 -f mp3 {{sound.mp3}}`
 
-Эта команда преобразует все картинки из текущей директории (названные image1.jpg, image2.jpg и т.д.) в видеофайл video.mpg
+- Convert frames from a video into individual numbered images 
 
-(примечание переводчика: мне больше нравится такой формат:
-ffmpeg -r 12 -y -i "image_%010d.png" output.mpg
+`ffmpeg -i {{video-filename}} {{image%d.png}}`
 
-здесь задаётся frame rate (12) для видео, формат «image_%010d.png» означает, что картинки будут искаться в виде image_0000000001.png, image_0000000002.png и тд, то есть, в формате printf)
+- Combine numbered images (image1.jpg, image2.jpg, etc) into a video
 
-3. Порезать видео на картинки
+`ffmpeg -f image2 -i {{image%d.jpg}} {{video.mpg}}`
 
-ffmpeg -i video.mpg image%d.jpg
+- Convert AVI video to MP4. AAC Audio @ 128kbit, Video @ 1250Kbit
 
-Эта команда создаст файлы image1.jpg, image2.jpg и т.д., поддерживаются так же форматы PGM, PPM, PAM, PGMYUV, JPEG, GIF, PNG, TIFF, SGI.
-
-4. Конвертировать видео в формат iPod/iPhone
-
-ffmpeg -i source_video.avi input -acodec aac -ab 128kb -vcodec mpeg4 -b 1200kb -mbd 2 -flags +4mv+trell -aic 2 -cmp 2 -subcmp 2 -s 320x180 -title X final_video.mp4
-
-Пояснения:
-
-Источник: source_video.avi
-Аудио кодек: aac
-Битрейт аудио: 128kb/s
-Видео кодек: mpeg4
-Битрейт видео: 1200kb/s
-Размер видео: 320 на 180 пикселей
-Полученное видео: final_video.mp4
-
-5. Конвертировать видео в формат PSP
-
-ffmpeg -i source_video.avi -b 300 -s 320x240 -vcodec xvid -ab 32 -ar 24000 -acodec aac final_video.mp4
-
-Пояснения:
-
-Источник: source_video.avi
-Аудио кодек: aac
-Битрейт аудио: 32kb/s
-Видео кодек: xvid
-Битрейт видео: 1200kb/s
-Размер видео: 320 на 180 пикселей
-Полученное видео: final_video.mp4
-
-6. Извлечь звуковую дорожку из видео и сохранить в mp3
-
-ffmpeg -i source_video.avi -vn -ar 44100 -ac 2 -ab 192 -f mp3 sound.mp3
-
-Пояснения:
-
-Источник: source_video.avi
-Битрейт аудио: 192kb/s
-Выходной формат: mp3
-Полученный аудиофайл: sound.mp3
-
-7. Конвертировать wav в mp3
-
-ffmpeg -i son_origine.wav -vn -ar 44100 -ac 2 -ab 192 -f mp3 son_final.mp3
-
-8. Конвертировать .avi в .mpg
-
-ffmpeg -i video_origine.avi video_finale.mpg
-
-9. Конвертировать .mpg в .avi
-
-ffmpeg -i video_origine.mpg video_finale.avi
-
-10. Конвертировать .avi в .gif (без сжатия)
-
-ffmpeg -i video_origine.avi gif_anime.gif
-
-11. Добавить звук к видео
-
-ffmpeg -i son.wav -i video_origine.avi video_finale.mpg
-
-12. Конвертировать .avi в .flv
-
-ffmpeg -i video_origine.avi -ab 56 -ar 44100 -b 200 -r 15 -s 320x240 -f flv video_finale.flv
-
-13. Конвертировать .avi в .dv
-
-ffmpeg -i video_origine.avi -s pal -r pal -aspect 4:3 -ar 48000 -ac 2 video_finale.dv
-
-или
-
-ffmpeg -i video_origine.avi -target pal-dv video_finale.dv
-
-14. Конвертировать .avi в mpeg для DVD-плееров
-
-ffmpeg -i source_video.avi -target pal-dvd -ps 2000000000 -aspect 16:9 finale_video.mpeg
-
-Пояснения:
-
-Выходной формат: pal-dvd
-Максимальный размер для выходного файла: 2000000000 (2 Gb)
-Широкоэкранный формат: 16:9
-
-15. Сжать .avi в DivX
-
-ffmpeg -i video_origine.avi -s 320x240 -vcodec msmpeg4v2 video_finale.avi
-
-16. Сжать OGG Theora в mpeg DVD
-
-ffmpeg -i film_sortie_cinelerra.ogm -s 720x576 -vcodec mpeg2video -acodec mp3 film_termin.mpg
-
-17. Сжать .avi в SVCD mpeg2
-
-Формат NTSC:
-
-ffmpeg -i video_origine.avi -target ntsc-svcd video_finale.mpg
-
-Формат PAL:
-
-ffmpeg -i video_origine.avi -target pal-svcd video_finale.mpg
-
-18. Сжать .avi в VCD mpeg2
-
-Формат NTSC:
-
-ffmpeg -i video_origine.avi -target ntsc-vcd video_finale.mpg
-
-Формат PAL:
-
-ffmpeg -i video_origine.avi -target pal-vcd video_finale.mpg
-
-19. Многопроходное кодирование с помощью ffmpeg
-
-ffmpeg -i fichierentree -pass 2 -passlogfile ffmpeg2pass fichiersortie-2
+`ffmpeg -i {{in.avi}} -acodec libfaac -ab 128k -vcodec mpeg4 -b 1250K {{out.mp4}}`

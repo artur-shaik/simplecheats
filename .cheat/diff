@@ -1,23 +1,23 @@
-# To view the differences between two files:
-diff -u version1 version2
+# diff
 
-# To view the differences between two directories:
-diff -ur folder1/ folder2/
+> Compare files and directories
 
-# To ignore the white spaces:
-diff -ub version1 version2
+- Compare files
 
-# To ignore the blank lines:
-diff -uB version1 version2
+`diff {{file1}} {{file2}}`
 
-# To ignore the differences between uppercase and lowercase:
-diff -ui version1 version2
+- Compare files, ignoring white spaces
 
-# To report whether the files differ:
-diff -q version1 version2
+`diff -w {{file1}} {{file2}}`
 
-# To report whether the files are identical:
-diff -s version1 version2
+- Compare files, showing differences side by side
 
-# To diff the output of two commands or scripts:
-diff <(command1) <(command2)
+`diff -y {{file1}} {{file2}}`
+
+- Compare directories recursively
+
+`diff -r {{directory1}} {{directory2}}`
+
+- Compare directories, only showing the names of files that differ 
+
+`diff -rq {{directory1}} {{directory2}}`

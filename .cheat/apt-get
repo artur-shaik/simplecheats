@@ -1,25 +1,24 @@
-# Desc: Allows to update the operating system
+# apt-get
 
-# To fetch package list
-apt-get update
+> Debian and Ubuntu package management utility
 
-# To download and install updates without installing new package.
-apt-get update
+- Synchronize list of packages and versions available. This should be run first, before running subsequent apt-get commands.
+ 
+`apt-get update`
 
-# To download and install the updates AND install new necessary packages
-apt-get dist-upgrade
+- install a new package
 
-# Full command:
-apt-get update && apt-get dist-upgrade
+`apt-get install {{package}}`
 
-# To install a new package(s)
-apt-get install package(s)
 
-# Download a package without installing it. (The package will be downloaded in your current working dir)
-apt-get download modsecurity-crs
+- remove a package
+ 
+`apt-get remove {{package}}`
 
-# Change Cache dir and archive dir (where .deb are stored).
-apt-get -o Dir::Cache="/path/to/destination/dir/" -o Dir::Cache::archives="./" install ...
+- Upgrade installed packages to newest available versions
 
-# Show apt-get installed packages.
-grep 'install ' /var/log/dpkg.log
+`apt-get upgrade`
+
+- Upgrade installed packages (like "upgrade"), but remove obsolete packages and install additional packages to meet new dependencies
+
+`apt-get dist-upgrade`

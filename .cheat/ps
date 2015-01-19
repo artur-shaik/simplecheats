@@ -1,15 +1,15 @@
-# To list every process on the system:
-ps aux
+# ps
 
-# To list a process tree
-ps axjf
+> Information about running processes
 
-# To list every process owned by foouser:
-ps -aufoouser
+- list all running processes
 
-# To list every process with a user-defined format:
-ps -eo pid,user,command
+`ps aux`
 
-# Exclude grep from your grepped output of ps.
-# Add [] to the first letter. Ex: sshd -> [s]shd
-ps aux | grep '[h]ttpd'
+- list all running processes including the full command string
+
+`ps auxww`
+
+- search for a process that matches a string
+
+`ps aux | grep {{string}}`

@@ -1,36 +1,23 @@
-# List all loaded/active units
-systemctl list-units
+# systemctl
 
-# Check the status of a service
-systemctl status foo.service
+> Control the systemd system and service manager
 
-# Start a service
-systemctl start foo.service
+- List failed units
 
-# Restart a service
-systemctl restart foo.service
+`systemctl --failed`
 
-# Stop a service
-systemctl stop foo.service
+- Start/Stop/Restart a service
 
-# Reload a service's configuration
-systemctl reload foo.service
+`systemctl start/stop/restart {{unit}}`
 
-# Enable a service to startup on boot
-systemctl enable foo.service
+- Show the status of a unit
 
-# Disable a service to startup on boot
-systemctl disable foo.service
+`systemctl status {{unit}}`
 
-# List the dependencies of a service
-# when no service name is specified, lists the dependencies of default.target
-systemctl list-dependencies foo.service 
+- Enable/Disable a unit to be started on bootup
 
-# List currently loaded targets
-systemctl list-units --type=target
+`systemctl enable/disable {{unit}}`
 
-# Change current target
-systemctl isolate foo.target
+- Reload systemd, scanning for new or changed units
 
-# Change default target
-systemctl enable foo.target
+`systemctl daemon-reload`

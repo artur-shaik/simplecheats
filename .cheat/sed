@@ -1,14 +1,22 @@
-# To replace all occurrences of "day" with "night" and write to stdout:
-sed 's/day/night/g' file.txt
+# sed
 
-# To replace all occurrences of "day" with "night" within file.txt:
-sed -i 's/day/night/g' file.txt
+> Run replacements based on regular expressions
 
-# To replace all occurrences of "day" with "night" on stdin:
-echo 'It is daytime' | sed 's/day/night/g'
+- replace all occurrences of a string in a file, and print the result
 
-# To remove leading spaces
-sed -i -r 's/^\s+//g' file.txt
+`sed 's/{{find}}/{{replace}}/g' {{filename}}`
 
-# Remove empty lines and print results to stdout:
-sed '/^$/d' file.txt
+- replace all occurrences of a string in a file, and overwrite the file
+  contents
+
+`sed -i '' 's/{{find}}/{{replace}}/g' {{filename}}`
+
+- replace all occurrences of an extended regular expression in a file
+
+`sed -E 's/{{regex}}/{{replace}}/g' {{filename}}`
+
+- replace all occurrences of multiple strings in a file
+
+`sed -e 's/{{find}}/{{replace}}/g' -e 's/{{find}}/{{replace}}/g' {{filename}}`
+
+

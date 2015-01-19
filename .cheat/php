@@ -1,23 +1,19 @@
-# To view the php version:
-php -v
+# php
 
-# To view the installed php modules:
-php -m
+> PHP Command Line Interface 'CLI'
 
-# To view phpinfo() information:
-php -i
+- Parse and execute a file
 
-# To lint a php file:
-php -l file.php
+`php {{file}}`
 
-# To lint all php files within the cwd:
-find . -name "*.php" -print0 | xargs -0 -n1 -P8 php -l
+- Check syntax (lint)
 
-# To enter an interactive shell:
-php -a
+`php -l {{file}}`
 
-# To locate the system's php.ini files:
-php -i | grep "php.ini"
+- Run PHP interactively
 
-# To start a local webserver for the cwd on port 3000 (requires php >= 5.4):
-php -S localhost:3000
+`php -a`
+
+- Run PHP code. Notes: a) Don't use <? ?> tags; b) Escape double quotes with backslash
+
+`php -r "{{code}}"`

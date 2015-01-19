@@ -1,5 +1,11 @@
-# send 100 requests with a concurency of 50 requests to an URL
-ab -n 100 -c 50 http://www.example.com/
+# ab
 
-# send requests during 30 seconds with a concurency of 50 requests to an URL
-ab -t 30 -c 50 URL http://www.example.com/
+> Apache Benchmarking tool. The simplest tool to perform a load testing.
+
+- Execute 100 HTTP GET requests to given URL.
+
+`ab -n 100 {{url}}`
+
+- Execute 100 HTTP GET requests, processing up to 10 requests concurrently, to given URL.
+
+`ab -n 100 -c 10 {{url}}`

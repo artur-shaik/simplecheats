@@ -1,32 +1,24 @@
-# To download a single file
-wget http://path.to.the/file
+# wget
 
-# To download a file and change its name
-wget http://path.to.the/file -o newname
+> Download files from the Web
+> Supports HTTP, HTTPS, and FTP
 
-# To download a file into a directory
-wget -P path/to/directory http://path.to.the/file
+- Download a URL to a file
 
-# To continue an aborted downloaded
-wget -c http://path.to.the/file
+`wget -O filename "{{url}}"`
 
-# To download multiples files with multiple URLs
-wget URL1 URL2
+- Limit download speed
 
-# To parse a file that contains a list of URLs to fetch each one
-wget -i url_list.txt
+`wget --limit-rate={{200k}} {{url}}`
 
-# To mirror a whole page locally
-wget -pk http://path.to.the/page.html
+- Continue an incomplete download 
 
-# To mirror a whole site locally
-wget -mk http://site.tl/
+`wget -c {{url}}`
 
-# To download files according to a pattern
-wget http://www.myserver.com/files-{1..15}.tar.bz2
+- Download a full website
 
-# To download all the files in a directory with a specific extension if directory indexing is enabled
-wget -r -l1 -A.extension http://myserver.com/directory
+`wget --mirror -p --convert-links -P {{target_folder}} {{url}}`
 
-# Allows you to download just the headers of responses (-S --spider) and display them on Stdout (-O -).
-wget -S --spider -O - http://google.com
+- FTP download with username and password
+
+`wget --ftp-user={{username}} --ftp-password={{password}} {{url}}`

@@ -1,11 +1,23 @@
-# Change file owner
-chown user file
+# chown
 
-# Change file owner and group
-chown user:group file
+> Change the owning user/group of the specified files
 
-# Change owner recursively
-chown -R user directory
+- change the user of a file
 
-# Change ownership to match another file
-chown --reference=/path/to/ref_file file
+`chown {{user}} {{path/to/file}}`
+
+- change the user and group of a file
+ 
+`chown {{user}}:{{group}} {{path/to/file}}`
+
+- recursively change the owner of an entire folder
+
+`chown -R {{user}} {{path/to/folder}}`
+
+- change the owner of a symbolic link
+ 
+`chown -h {{user}} {{path/to/symlink}}`
+
+- use the owner and group of a reference file and apply those values to another file
+
+`chown --reference={{reference-file}} {{path/to/file}}`

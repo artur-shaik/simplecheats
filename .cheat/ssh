@@ -1,26 +1,32 @@
-# To ssh via pem file (which normally needs 0600 permissions):
-ssh -i /path/to/file.pem user@example.com
+# SSH
 
-# To connect on an non-standard port:
-ssh -p 2222 user@example.com
+> Secure Shell is a protocol used to securely log onto remote systems.
+> It can be used for logging or executing commands on a remote server.
 
-# To execute a command on a remote server:
-ssh -t user@example.com 'the-remote-command'
+- connecting to a remote server
 
-# To tunnel an x session over SSH:
-ssh -X user@example.com
+`ssh {{username}}@{{remote_host}}`
 
-# To launch a specific x application over SSH:
-ssh -X -t user@example.com 'chromium-browser'
+- connecting to a remote server with a specific identity (private key)
 
-# To create a SOCKS proxy on localhost and port 9999
-ssh -D 9999 user@example.com
+`ssh -i {{/path/to/key_file}} {{username}}@{{remote_host}}`
 
-# -X use an xsession, -C compress data, "-c blowfish" use the encryption blowfish
-ssh user@example.com -C -c blowfish -X
+- connecting to a remote server with specific port
 
-#Copy existed key to server for auth on fly
-ssh-copy-id -i ~/.ssh/id_dsa.pub server
+`ssh {{username}}@{{remote_host}} -p {{2222}}`
 
-# For more information, see:
-# http://unix.stackexchange.com/q/12755/44856
+- run a command on a remote server
+ 
+`ssh {{remote_host}} "{{command -with -flags}}"`
+
+- ssh tunneling: dynamic port forwarding (SOCKS proxy on localhost:9999) 
+
+`ssh -D {{9999}} -C {{username}}@{{remote_host}}`
+
+- ssh tunneling: forward a specific port (localhost:9999 to slashdot.org:80)
+
+`ssh -L {{9999}}:slashdot.org:80 {{username}}@{{remote_host}}`
+
+- ssh enable agent forward 
+
+`ssh -A {{username}}@{{remote_host}}`

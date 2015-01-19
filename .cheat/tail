@@ -1,14 +1,19 @@
-# To show the last 10 lines of file
-tail file
+# tail
 
-# To show the last N lines of file
-tail -n N file
+> Display the last part of a file
 
-# To show the last lines of file starting with the Nth
-tail -n +N file
+- show last 'num' lines in file
 
-# To show the last N bytes of file
-tail -c N file
+`tail -n {{num}} {{file}}`
 
-# To show the last 10 lines of file and to wait for file to grow
-tail -f file
+- show all file since line 'num'
+
+`tail -n +{{num}} {{file}}`
+
+- show last 'num' bytes in file
+
+`tail -c {{num}} {{file}}`
+
+- keep reading file until ctrl-c
+
+`tail -f {{file}}`

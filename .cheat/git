@@ -1,66 +1,19 @@
-# To set your identify:
-git config --global user.name "John Doe"
-git config --global user.email johndoe@example.com
+#git
 
-# To set your editor:
-git config --global core.editor emacs
+> Main command for all `git` commands
 
-# To enable color:
-git config --global color.ui true
+- Check the Git version
 
-# To stage all changes for commit:
-git add --all
+`git --version`
 
-# To commit staged changes
-git commit -m "Your commit message"
+- Call general help
 
-# To edit previous commit message
-git commit --amend
+`git --help`
 
-# To removed staged and working directory changes
-git reset --hard
+- Call help on a command
 
-# To remove untracked files
-git clean -f -d
+`git help {{COMMAND}}`
 
-# To remove untracked and ignored files
-git clean -f -d -x
+- Execute Git command
 
-# To push to the tracked master branch:
-git push origin master
-
-# To push to a specified repository:
-git push git@github.com:username/project.git
-
-# To delete the branch "branch_name"
-git branch -D branch_name
-
-# To see who commited which line in a file
-git blame filename
-
-# To sync a fork with the master repo:
-git remote add upstream git@github.com:name/repo.git    # Set a new repo
-git remote -v                                           # Confirm new remote repo
-git fetch upstream                                      # Get branches
-git branch -va                                          # List local - remote branches
-git checkout master                                     # Checkout local master branch
-git checkout -b new_branch                              # Create and checkout a new branch
-git merge upstream/master                               # Merge remote into local repo
-git show 83fb499                                        # Show what a commit did.
-git show 83fb499:path/fo/file.ext                       # Shows the file as it appeared at 83fb499.
-git diff branch_1 branch_2                              # Check difference between branches
-git log                                                 # Show all the commits
-git status                                              # Show the changes from last commit
-
-
-# To remove the file you're interested in from version control, then use all your other commands as normal.
-git update-index --assume-unchanged <file>
-
-# If you ever wanted to put it back in.
-git update-index --no-assume-unchanged <file>
-
-# Cancel last commit
-git reset --soft HEAD~1
-
-# Remove all untracked files
-git clean -f
+`git {{COMMAND}}`

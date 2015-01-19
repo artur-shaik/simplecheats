@@ -1,35 +1,28 @@
-# Download a single file
-curl http://path.to.the/file
+# curl
 
-# Download a file and specify a new filename
-curl http://example.com/file.zip -o new_file.zip
+> Transfers data from or to a server
+> Supports most protocols including HTTP, FTP, POP
 
-# Download multiple files
-curl -O URLOfFirstFile -O URLOfSecondFile
+- Download a URL to a file
 
-# Download all sequentially numbered files (1-24)
-curl http://example.com/pic[1-24].jpg
+`curl "{{URL}}" -o filename` 
 
-# Download a file and pass HTTP Authentication
-curl -u username:password URL 
+- send form-encoded data
 
-# Download a file with a Proxy
-curl -x proxysever.server.com:PORT http://addressiwantto.access
+`curl --data {{name=bob}} {{http://localhost/form}}`
 
-# Download a file from FTP
-curl -u username:password -O ftp://example.com/pub/file.zip
+- send JSON data
 
-# Get an FTP directory listing
-curl ftp://username:password@example.com
+`curl -X POST -H "Content-Type: application/json" -d {{'{"name":"bob"}'}} {{http://localhost/login}}`
 
-# Resume a previously failed download
-curl -C - -o partial_file.zip http://example.com/file.zip
+- specify an HTTP method
 
-# Fetch only the HTTP headers from a response
-curl -I http://example.com
+`curl -X {{DELETE}} {{http://localhost/item/123}}`
 
-# Fetch your external IP and network info as JSON
-curl http://ifconfig.me/all/json
+- head request
 
-# Limit the rate of a download
-curl --limit-rate 1000B -O http://path.to.the/file
+`curl --head {{http://localhost}}`
+
+- pass a user name and password for server authentication
+
+`curl -u myusername:mypassword {{http://localhost}}`

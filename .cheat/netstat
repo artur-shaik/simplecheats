@@ -1,28 +1,23 @@
-# WARNING ! netstat is deprecated. Look below.
+# netstat
 
-# To view which users/processes are listening to which ports:
-sudo netstat -lnptu
+> Displays various networks related information such as open connections, open socket ports etc
 
-# To view routing table (use -n flag to disable DNS lookups):
-netstat -r
+-List all ports
 
-# Which process is listening to port <port>
-netstat -pln | grep <port> | awk '{print $NF}'
+`netstat -a`
 
-Example output: 1507/python
+-List all listening ports
 
-# Fast display of ipv4 tcp listening programs
-sudo netstat -vtlnp --listening -4
+`netstat -l`
 
-# WARNING ! netstat is deprecated.
-# Replace it by:
-ss
+-Display PID and program names
 
-# For netstat-r
-ip route
+`netstat -p`
 
-# For netstat -i
-ip -s link
+-Find out which port a process is running (e.g. find out which port ssh is listening on)
 
-# For netstat-g
-ip maddr
+`netstat -ap | grep ssh`
+
+-Find out which process is listening on a particular port
+
+`netstat -ap | grep ':80'`

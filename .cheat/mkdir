@@ -1,9 +1,11 @@
-# Create a directory and all its parents
-mkdir -p foo/bar/baz
+# mkdir
 
-# Create foo/bar and foo/baz directories
-mkdir -p foo/{bar,baz}
+> Creates a directory
 
-# Create the foo/bar, foo/baz, foo/baz/zip and foo/baz/zap directories
-mkdir -p foo/{bar,baz/{zip,zap}}
+- creates a directory in current folder or given path
 
+`mkdir {{directory}}`
+
+- creates directories recursively (useful for creating nested dirs)
+
+`mkdir -p {{path}}`

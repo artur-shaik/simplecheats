@@ -1,25 +1,21 @@
-# parameters:
--v : verbose
--r : copies data recursively (but don’t preserve timestamps and permission while transferring data
--a : archive mode, archive mode allows copying files recursively and it also preserves symbolic links, file permissions, user & group ownerships and timestamps
--z : compress file data
--h : human-readable, output numbers in a human-readable format
+# rsync
 
-# copy files from remote to local, maintaining file propertires and sym-links (-a), zipping for faster transfer (-z), verbose (-v).  
-rsync -avz host:file1 :file1 /dest/
-rsync -avz /source host:/dest
+> Transfers a file either to or from a remote host
+> Does not allow transfer between two remote hosts
+> Can transfer single files or files matched by pattern
 
-# Copy files using checksum (-c), rather than time, to detect if the file has changed. (Useful for validating backups). 
-rsync -avc /source/ /dest/
+- transfer file from local to remote host
 
-# Use of –include and –exclude Options
-rsync -avze ssh --include 'R*' --exclude '*' root@192.168.0.101:/var/lib/rpm/ /root/rpm
+`rsync {{path_to_file}} {{remote_host_name}}:{{remote_host_location}}`
 
-# Set the Max Size of Files to be Transferred
-rsync -avzhe ssh --max-size='200k' /var/lib/rpm/ root@192.168.0.100:/root/tmprpm
+- transfer file from remote host to local
 
-# Automatically Delete source Files after successful Transfer
-rsync --remove-source-files -zvh backup.tar /tmp/backups/
+`rsync {{remote_host_name}}:{{remote_file_location}} {{local_file_location}}`
 
-# Set Bandwidth Limit and Transfer File
-rsync --bwlimit=100 -avzhe ssh  /var/lib/rpm/  root@192.168.0.100:/root/tmprpm/
+- transfer all *.js files in current directory to host 'devbox' as user 'mike'
+
+`rsync *.js mike@devbox:~/projects/cakeStore/styles/`
+
+- transfer a directory and all its children from a remote to local
+
+`rsync -r mike@devbox:~/projects/cakeStore /Users/mike/devProjects/`

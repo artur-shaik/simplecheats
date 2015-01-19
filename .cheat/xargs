@@ -1,12 +1,15 @@
-# find all file name ending with .pdf and remove them
-find -name *.pdf | xargs rm -rf
+# xargs
 
-# if file name contains spaces you should use this instead
-find -name *.pdf | xargs -I{} rm -rf '{}'
+> execute a command with piped arguments
 
-# Will show every .pdf like:
-#	&toto.pdf=
-#	&titi.pdf=
-# -n1 => One file by one file. ( -n2 => 2 files by 2 files )
+- main use
 
-find -name *.pdf | xargs -I{} -n1 echo '&{}='
+`{{arguments}} | xargs {{command}}`
+
+- handling whitespace in arguments
+
+`{{arguments_null_terminated}} | xargs -0 {{command}}`
+
+- example: list unneeded packages with deborphan and remove them with apt-get
+
+`sudo deborphan | xargs sudo apt-get remove`
