@@ -1,0 +1,5 @@
+#compdef cheat
+
+_cheat() {
+    _arguments "1: :(`ls -1 ~/.cheat | awk '{ ORS=" "; print; }'`)"
+}
