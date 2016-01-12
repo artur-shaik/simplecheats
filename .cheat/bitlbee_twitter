@@ -1,0 +1,10 @@
+In strict command mode, the following commands are supported:
+
+post:                           Send the text following the command as a new tweet.
+undo [id]:                      Undo last action or the action of the id provided (i.e. a tweet you posted).
+favourite [id|username]:        Favourite the tweet belonging to the id or username provided.
+follow [username]:              Start following the provided username.
+unfollow [username]:            Stop following the provided username.
+report or spam [username|id]:   Report the provided username for spam (will be looked up if a status id is provided)
+rt [id|username]:               Retweet tweet with status id provided, or last tweet by the username provided.
+reply [id|username]:            Reply to tweet with status id provided, or last tweet by the username provided.
