@@ -9,3 +9,71 @@
 - discover hosts in the 192.168.0.X area (no port scan)
 
 `nmap -sn {{192.168.0.1/24}}`
+
+- scan a whole subnet
+
+`nmap 192.168.0.*`
+
+- scan multiple servers using last octet of ip address
+
+`nmap 192.168.0.101,102,103`
+
+- scan an ip address range
+
+`nmap 192.168.0.101-110`
+
+- scan network excluding remote hosts
+
+`nmap 192.168.0.* --exclude 192.168.0.100`
+
+- scan os information and traceroute
+
+`nmap -A 192.168.0.101`
+
+- enable os detection with nmap
+
+`nmap -O server2.tecmint.com`
+
+- scan a host to detect firewall
+
+`nmap -sA 192.168.0.101`
+
+- scan a host to check its protected by firewall
+
+`nmap -PN 192.168.0.101`
+
+- find out live hosts in a network
+
+`nmap -sP 192.168.0.*`
+
+- perform a fast scan
+
+`nmap -F 192.168.0.101`
+
+- scan ports consecutively
+
+`nmap -r 192.168.0.101`
+
+- scan for specific port
+
+`nmap -p 80 server2.tecmint.com`
+
+- scan a tcp port
+
+`nmap -p T:8888,80 server2.tecmint.com`
+
+- find host services version numbers
+
+`nmap -sV 192.168.0.101`
+
+- perform a stealthy scan
+
+`nmap -sS 192.168.0.101`
+
+- check most commonly used ports with tcp syn
+
+`nmap -sT 192.168.0.101`
+
+- Perform a tcp null scan to fool a firewall
+
+`nmap -sN 192.168.0.101`
