@@ -1,0 +1,33 @@
+Default mappings:
+
+Normal mode:
+  <leader>jI - add 'import's for all classes
+  <leader>jR - remove all unused 'import's
+  <leader>ji - add 'import' of class under cursor
+  <leader>jii - show options before add 'import' under cursor
+
+  <leader>jM - insert all abstract methods, that need to be implemented
+  <leader>jA - open accessors generation dialog
+  <leader>js - generate 'setter' for field under cursor
+  <leader>jg - generate 'getter' for field under cursor
+  <leader>ja - generate 'setter' and 'getter' for field under cursor
+  <leader>jts - generate 'toString' method
+  <leader>jeq - open dialog for 'equals' and 'hashCode' generation
+  <leader>jc - open dialog for constructor generation
+  <leader>jcc - generate default constructor
+
+Insert mode:
+  <C-j>I - add 'import's for all classes
+  <C-j>R - remove all unused 'import's
+  <C-j>i - add 'import' of class under or before cursor
+  <C-j>ii - show options before add 'import' under or before cursor
+
+  <C-j>jM - insert all abstract methods, that need to be implemented
+  <C-j>s - generate 'setter' for field under cursor
+  <C-j>g - generate 'getter' for field under cursor
+  <C-j>a - generate 'setter' and 'getter' for field under cursor
+
+Visual mode:
+  <leader>js - generate 'setter's for visually selected fields
+  <leader>jg - generate 'getter's for visually selected fields
+  <leader>ja - generate 'setter's and 'getter's for field under cursor
