@@ -8,3 +8,24 @@ unfollow [username]:            Stop following the provided username.
 report or spam [username|id]:   Report the provided username for spam (will be looked up if a status id is provided)
 rt [id|username]:               Retweet tweet with status id provided, or last tweet by the username provided.
 reply [id|username]:            Reply to tweet with status id provided, or last tweet by the username provided.
+
+
+     * A channel with only the twitter user @bitlbee in it
+
+ chat add twitter follow:bitlbee #filterchannel
+
+     * A channel that shows every mention of the word "bitlbee"
+
+ chat add twitter track:bitlbee #filterchannel
+
+     * A channel that follows two bots that post messages every two minutes:
+
+ chat add twitter follow:metaphorminute;follow:RealHumanPraise #filterchannel
+
+     * A channel that tracks a moderately spammy hashtag:
+
+ chat add twitter track:#giveaway #filterchannel
+
+     * A channel that combines a follow for @metaphorminute and tracking for "#giveaway"
+
+ chat add twitter follow:metaphorminute;track:#giveaway #filterchannel

@@ -1,0 +1,3 @@
+- deb to rpm:
+
+`sudo alien -r -c -v name.deb`
